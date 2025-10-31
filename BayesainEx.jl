@@ -70,58 +70,44 @@ md"[McElreath, Richard. Statistical Rethinking 2023 - 02 - The Garden of Forking
 # ╔═╡ 7de477bf-e60b-459e-b249-210f83d4b72a
 md"[StatisticalRethinkingJulia/TuringModels.jl/m2.1: Globe tossing](https://statisticalrethinkingjulia.github.io/TuringModels.jl/models/globe-tossing/)"
 
+# ╔═╡ 2e3b03f0-621e-4421-ae92-fa10054cfbc3
+md"
+```
+@book{Jaynes2003,
+  author = {Jaynes, E. T.},
+  title = {Probability Theory: The Logic of Science},
+  publisher = {Cambridge University Press},
+  year = {2003},
+  address = {Cambridge, UK},
+  editor = {Bretthorst, G. Larry}
+}
+```
+"
+
 # ╔═╡ 1e68d8fa-0cce-40c0-b75e-85512e84c9f2
 md"## Bayes/Laplace formular"
 
 # ╔═╡ 5f7631d6-d3bb-4cdb-9aec-4c174ed5ed8e
 
 md"""
+
 ```math
 
 \begin{equation}
-\Pr(A|B) = \frac{\Pr(B|A)\Pr(A)}{\Pr(B)}
+	P(H|E) = \frac{P(E|H)P(H)}{P(E)}
 \end{equation}
 
 ```
+
+1. ``H`` is the hypothosis
+2. ``P(H)`` prior problity
+3. ``E`` is the evidence
+4. ``P(H|E)`` is the posterior problity
+5. ``P(E|H)`` is the probability of observing E given H "likelyhood"
+6. After new data is observed the ``P(H)`` prior problity is set value of posterior problity.  This is how we converage to better answer as we collect more data.
+
 """
 
-
-# ╔═╡ 7b064cd0-d004-447e-941d-c03a1f1835c9
-begin
-
-########################################
-# Traditional Approach
-########################################
-
-# inputs
-
-n = 9
-
-p = 0.71
-
-# model
-
-f(n, p) = Int(round(n * p))
-
-# output
-
-w = f(n, p)
-
-# try to back into the value of p
-
-w / n
-
-p1 = 0.62
-
-w1 = f(n, p1)
-
-p2 = 0.72
-
-w2 = f(n, p2)
-
-println(w2)
-
-end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -2563,9 +2549,9 @@ version = "1.9.2+0"
 # ╠═a5d3bc8a-8247-4667-b3cc-415b7a89fba1
 # ╠═5db52d12-baa4-4349-80ef-94ea8c218904
 # ╠═7de477bf-e60b-459e-b249-210f83d4b72a
+# ╠═2e3b03f0-621e-4421-ae92-fa10054cfbc3
 # ╠═1e68d8fa-0cce-40c0-b75e-85512e84c9f2
 # ╠═5f7631d6-d3bb-4cdb-9aec-4c174ed5ed8e
-# ╠═7b064cd0-d004-447e-941d-c03a1f1835c9
 # ╠═82125c33-d27e-426c-bb2d-39baa5a30d7f
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
